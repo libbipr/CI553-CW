@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class BetterBasketTest {
 
 	@Test
-	void testAddProduct() {
+	void test() {
 		fail("Not yet implemented");
 	}
 
