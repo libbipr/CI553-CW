@@ -17,6 +17,7 @@ import java.util.Locale;
 public class Basket extends ArrayList<Product> implements Serializable
 {
   private static final long serialVersionUID = 1;
+  private ArrayList<Product> productArray = new ArrayList<Product>(10);
   private int    theOrderNum = 0;          // Order number
   
   /**
@@ -65,6 +66,18 @@ public class Basket extends ArrayList<Product> implements Serializable
    * Returns a description of the products in the basket suitable for printing.
    * @return a string description of the basket products
    */
+  public Product remove()
+  {
+	  int numOfProducts = productArray.size();
+	  if(numOfProducts<1)
+	  {
+		  throw new Error("EMPTY: Basket.remove()");
+	  }
+	  else {
+		  return productArray.remove(numOfProducts-1);
+	  }
+  }
+  
   public String getDetails()
   {
     Locale uk = Locale.UK;
