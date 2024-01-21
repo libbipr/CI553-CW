@@ -131,6 +131,25 @@ public class CashierModel extends Observable
     setChanged(); notifyObservers(theAction);
   }
   
+  public void doRemove() {
+	  String theAction = "";
+	  int amount = 1;
+	  try {
+		  if (theState != State.checked) {
+			  theAction = "Check if OKAY with customer first";
+		  } else {
+			  theBasket.remove(theProduct);
+			  theStock.addStock(theProduct.getProductNum(),theProduct.getQuantity());
+		  }
+	  } catch (StockException e) {
+		  DEBUG.error("%s\n%s", "CashierModel.doBuy", e.getMessage());
+		  theAction = e.getMessage();
+	  }
+	  theAction = "Removed " + theProduct.getDescription();
+	  theState = State.process;
+	  setChanged();
+	  notifyObservers(theAction);
+  } 
   /**
    * Customer pays for the contents of the basket
    */
