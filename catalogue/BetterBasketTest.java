@@ -2,6 +2,7 @@ package catalogue;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
 import org.junit.jupiter.api.Test;
 
 class BetterBasketTest {
@@ -24,6 +25,11 @@ class BetterBasketTest {
 		
 		b.add(p4);
 		assertEquals(3, b.size(), "Size incorrect after non-merge");
+	}
+
+	private BetterBasket BetterBasket() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
